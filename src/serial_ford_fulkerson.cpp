@@ -8,7 +8,6 @@ class Network
 {
 private:
     unsigned short vertex_count = 0;
-    //vector<string> vertex_string_representation;
 
     vector<vector<unsigned short>> adjacency_matrix;
 
@@ -38,8 +37,6 @@ private:
             }
         }
 
-        //cout << "returning- " << visited[vertexT] << endl;
-
         return visited[vertexT];
     }
 
@@ -48,12 +45,6 @@ public:
                                                                                     vector<vector<unsigned short>>(vertex_count, vector<unsigned short>(vertex_count)))
     {
         this->vertex_count = vertex_count;
-        //vertex_string_representation.resize(vertex_count);
-    }
-
-    void add_vertex_string_representation(int index, string str)
-    {
-        //vertex_string_representation[index] = std::move(str);
     }
 
     void add_edge(unsigned short from, unsigned short to, unsigned short capacity)
@@ -82,15 +73,7 @@ public:
             {
                 vertexU = parent[vertexV];
                 bottleneckFlow = min(bottleneckFlow, adjacency_matrix[vertexU][vertexV]);
-
-                //                pathString.insert(0, to_string(vertexV));
-                //                pathString.insert(0, " --> ");
             }
-
-            //            pathString.insert(0, "S");
-
-            //            cout << "Augmentation path: " << pathString << "\t";
-            //            cout << " bottleneck (min flow on path added to max flow) = " << bottleneckFlow << endl;
 
             for (vertexV = vertexT; vertexV != vertexS; vertexV = parent[vertexV])
             {
